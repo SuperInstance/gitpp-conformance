@@ -1,0 +1,23 @@
+name: test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          repository: SuperInstance/gitpp-js
+          path: gitpp-js
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Run the conformance corpus against gitpp-js
+        run: |
+          cd ../..
+          node runner.mjs ./gitpp-js/src/gitpp.js
