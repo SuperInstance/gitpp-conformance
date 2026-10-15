@@ -1,0 +1,27 @@
+{
+  "name": "L2/pinned-poc-quilt-1",
+  "description": "The pinned closure root for poc-quilt-1@task-c. This is the receipt every port must reproduce.",
+  "family": "L2",
+  "rule": "spec §4 + CHECKPOINT-V2.md worked value",
+  "at": "task-c",
+  "pinned_root": "60effe23970d8a5cc837636c44685502361288c1f00577e9addfa10cbd4fc91d",
+  "input_source": "https://gitpp.superinstance.dev/api/records?project=poc-quilt-1",
+  "expected_closure_root": "60effe23970d8a5cc837636c44685502361288c1f00577e9addfa10cbd4fc91d",
+  "expected_state": {
+    "config.timeout": 45,
+    "env.oracle_disk_pct": 93,
+    "env.oracle_load1_x100": 17,
+    "feature.cache": "on",
+    "feature.inherited": true,
+    "feature.search": "on",
+    "project": "poc-quilt-1",
+    "status": "open"
+  },
+  "expected_conflicts": [
+    {
+      "key": "config.timeout",
+      "winner": "override-1",
+      "losers": ["task-a", "task-b", "task-d"]
+    }
+  ]
+}

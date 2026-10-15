@@ -1,0 +1,14 @@
+{
+  "name": "F1/tiebreak-id",
+  "description": "Tie-break #3: lexicographically smallest id wins. When intent and witness counts tie, the smaller id wins.",
+  "family": "F1",
+  "rule": "spec §5.2 tie-break: smallest id (by Unicode code point) first",
+  "at": "task-c",
+  "input": [
+    { "id": "task-a", "kind": "task", "parents": [], "effects": { "x": 1 } },
+    { "id": "task-b", "kind": "task", "parents": [], "effects": { "x": 1 } },
+    { "id": "task-c", "kind": "task", "parents": ["task-a", "task-b"], "effects": { "x": 1 } }
+  ],
+  "expected_state": { "x": 1 },
+  "_note": "Both task-a and task-b are in task-c's ancestry with the same value and the same witness/intent counts. task-a should win by tie-break #3 (smaller id)."
+}

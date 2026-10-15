@@ -1,0 +1,9 @@
+{
+  "name": "S1/poc-quilt-1-features",
+  "description": "feature.cache and feature.search are uncontested tasks; both reach the state.",
+  "family": "S1",
+  "rule": "spec §5.2: uncontested task effects reach the state",
+  "at": "task-c",
+  "input_source": "https://gitpp.superinstance.dev/api/records?project=poc-quilt-1",
+  "expected_state_subset": { "feature.cache": "on", "feature.search": "on" }
+}

@@ -1,0 +1,36 @@
+{
+  "name": "L1/non-bmp-ids",
+  "description": "Record ids with non-BMP characters sort correctly by Unicode code point, not by UTF-16 code unit. The parents list contains two non-BMP characters; their order in the leaf (sorted) is determined by code point, not by UTF-16 code unit.",
+  "family": "L1",
+  "rule": "spec \u00a72: sort by Unicode code point, not UTF-16 code unit",
+  "at": "task-1",
+  "input": [
+    {
+      "id": "task-1",
+      "kind": "task",
+      "parents": [
+        "\ud83d\ude80",
+        "\ud83d\ude00"
+      ],
+      "effects": {
+        "y": 1
+      }
+    },
+    {
+      "id": "\ud83d\ude80",
+      "kind": "task",
+      "parents": [],
+      "effects": {}
+    },
+    {
+      "id": "\ud83d\ude00",
+      "kind": "task",
+      "parents": [],
+      "effects": {}
+    }
+  ],
+  "expected_closure_root": "computed",
+  "expected_state": {
+    "y": 1
+  }
+}

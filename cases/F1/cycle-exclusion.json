@@ -1,0 +1,13 @@
+{
+  "name": "F1/cycle-exclusion",
+  "description": "A parent cycle excludes all records in the cycle from the applied set.",
+  "family": "F1",
+  "rule": "spec §5.4: cycle-affected records excluded from order",
+  "at": "task-a",
+  "input": [
+    { "id": "task-a", "kind": "task", "parents": ["task-b"], "effects": { "x": 1 } },
+    { "id": "task-b", "kind": "task", "parents": ["task-a"], "effects": { "y": 2 } }
+  ],
+  "expected_state": {},
+  "expected_orphans_includes": "task-a"
+}

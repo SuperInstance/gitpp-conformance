@@ -1,0 +1,43 @@
+{
+  "name": "L1/parents-sorted",
+  "description": "Parents are sorted by Unicode code point in the leaf, independent of the order the record listed them. Reordering parents is not a tamper.",
+  "family": "L1",
+  "rule": "spec \u00a72: parents is a set, sorted by Unicode code point",
+  "at": "task-1",
+  "input": [
+    {
+      "id": "task-1",
+      "kind": "task",
+      "parents": [
+        "zeta",
+        "alpha",
+        "mu"
+      ],
+      "effects": {
+        "x": 1
+      }
+    },
+    {
+      "id": "zeta",
+      "kind": "task",
+      "parents": [],
+      "effects": {}
+    },
+    {
+      "id": "alpha",
+      "kind": "task",
+      "parents": [],
+      "effects": {}
+    },
+    {
+      "id": "mu",
+      "kind": "task",
+      "parents": [],
+      "effects": {}
+    }
+  ],
+  "expected_closure_root": "computed",
+  "expected_state": {
+    "x": 1
+  }
+}

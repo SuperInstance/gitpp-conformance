@@ -1,0 +1,11 @@
+{
+  "name": "L2/grown-closure",
+  "description": "A later-arriving ancestor of at changes the closure, even if the state doesn't change. The root differs; the verdict is STATE-ONLY.",
+  "family": "L2",
+  "rule": "spec §4 + §6: STATE-ONLY when closure has changed but state matches",
+  "at": "task-c",
+  "pinned_root_against_live": "60effe23970d8a5cc837636c44685502361288c1f00577e9addfa10cbd4fc91d",
+  "input_modification": "Add a new record 'predecessor-1' that override-1 now depends on. The closure of task-c grows; the state does not.",
+  "expected_closure_root": "differs-from-pinned",
+  "expected_state": "matches-live"
+}

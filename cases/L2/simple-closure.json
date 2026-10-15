@@ -1,0 +1,14 @@
+{
+  "name": "L2/simple-closure",
+  "description": "A simple 3-record closure: genesis → task-1 → task-2. The root hashes three leaves.",
+  "family": "L2",
+  "rule": "spec §4: closure is at plus all transitive ancestors, sorted by code point",
+  "at": "task-2",
+  "input": [
+    { "id": "genesis", "kind": "task", "parents": [], "effects": { "init": true } },
+    { "id": "task-1", "kind": "task", "parents": ["genesis"], "effects": { "x": 1 } },
+    { "id": "task-2", "kind": "task", "parents": ["task-1"], "effects": { "y": 2 } }
+  ],
+  "expected_closure_root": "computed",
+  "expected_state": { "init": true, "x": 1, "y": 2 }
+}

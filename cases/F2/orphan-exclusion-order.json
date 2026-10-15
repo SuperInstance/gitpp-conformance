@@ -1,0 +1,12 @@
+{
+  "name": "F2/orphan-exclusion-order",
+  "description": "Orphan records are excluded from the order.",
+  "family": "F2",
+  "rule": "spec §5.4 + §5.5: orphans excluded",
+  "at": "ok",
+  "input": [
+    { "id": "ok", "kind": "task", "parents": [], "effects": { "x": 1 } },
+    { "id": "orphan", "kind": "task", "parents": ["missing"], "effects": { "y": 1 } }
+  ],
+  "expected_order": ["ok"]
+}

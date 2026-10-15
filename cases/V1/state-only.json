@@ -1,0 +1,10 @@
+{
+  "name": "V1/state-only",
+  "description": "STATE-ONLY when the closure root has changed (e.g. a later-arriving ancestor) but the state still matches. The 'closure has changed' case is what the spec calls STATE-ONLY.",
+  "family": "V1",
+  "rule": "spec §6: STATE-ONLY = state matches but closure has changed",
+  "at": "task-c",
+  "pinned_root": "60effe23970d8a5cc837636c44685502361288c1f00577e9addfa10cbd4fc91d",
+  "input_modification": "Add a new record that grows the closure of task-c without changing any state value (e.g. a new witness that sets a value already set).",
+  "expected_verdict": "STATE-ONLY"
+}

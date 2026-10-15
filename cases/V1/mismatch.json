@@ -1,0 +1,97 @@
+{
+  "name": "V1/mismatch",
+  "description": "MISMATCH when the state differs from the expected state. The closure root is also typically different in this case, but the load-bearing difference is the state.",
+  "family": "V1",
+  "rule": "spec \u00a76: MISMATCH = state differs",
+  "at": "task-c",
+  "input_tampered": [
+    {
+      "id": "genesis",
+      "kind": "task",
+      "parents": [],
+      "effects": {
+        "project": "poc-quilt-1",
+        "status": "open"
+      }
+    },
+    {
+      "id": "task-a",
+      "kind": "task",
+      "parents": [
+        "genesis"
+      ],
+      "effects": {
+        "config.timeout": 30,
+        "feature.cache": "on"
+      }
+    },
+    {
+      "id": "task-b",
+      "kind": "task",
+      "parents": [
+        "genesis"
+      ],
+      "effects": {
+        "config.timeout": 60,
+        "feature.search": "on"
+      }
+    },
+    {
+      "id": "override-1",
+      "kind": "override",
+      "parents": [
+        "task-a",
+        "task-b"
+      ],
+      "effects": {
+        "config.timeout": 999
+      },
+      "reason": "tampered"
+    },
+    {
+      "id": "task-c",
+      "kind": "task",
+      "parents": [
+        "override-1"
+      ],
+      "effects": {
+        "feature.inherited": true
+      }
+    },
+    {
+      "id": "task-d",
+      "kind": "task",
+      "parents": [
+        "task-b"
+      ],
+      "effects": {
+        "config.timeout": 99
+      }
+    },
+    {
+      "id": "witness-1",
+      "kind": "witness",
+      "parents": [
+        "genesis"
+      ],
+      "effects": {
+        "env.oracle_disk_pct": 93
+      }
+    },
+    {
+      "id": "witness-2",
+      "kind": "witness",
+      "parents": [
+        "override-1"
+      ],
+      "effects": {
+        "env.oracle_load1_x100": 17
+      }
+    }
+  ],
+  "expected_state_subset": {
+    "config.timeout": 999
+  },
+  "expected_verdict": "MISMATCH",
+  "_note": "input_tampered is a tampered copy of the live poc-quilt-1 set with override-1.effects.config.timeout changed from 45 to 999. This produces state.config.timeout=999, which differs from the pinned live state \u2014 the MISMATCH verdict."
+}

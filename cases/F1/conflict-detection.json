@@ -1,0 +1,17 @@
+{
+  "name": "F1/conflict-detection",
+  "description": "Conflict detection: when 2+ records set a key to different values, a conflict is emitted with the class-precedence winner and all other setters as losers.",
+  "family": "F1",
+  "rule": "spec §5.3: 'every setter is a candidate' — losers are all candidates with different values, not just within-class",
+  "at": "task-c",
+  "input": [
+    { "id": "task-a", "kind": "task", "parents": [], "effects": { "config.timeout": 30 } },
+    { "id": "task-b", "kind": "task", "parents": [], "effects": { "config.timeout": 60 } },
+    { "id": "witness-1", "kind": "witness", "parents": [], "effects": { "config.timeout": 99 } },
+    { "id": "task-c", "kind": "task", "parents": ["task-a", "task-b", "witness-1"], "effects": {} }
+  ],
+  "expected_state": { "config.timeout": 30 },
+  "expected_conflicts": [
+    { "key": "config.timeout", "winner": "task-a", "losers": ["task-b", "witness-1"] }
+  ]
+}

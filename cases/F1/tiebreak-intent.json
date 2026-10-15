@@ -1,0 +1,15 @@
+{
+  "name": "F1/tiebreak-intent",
+  "description": "Tie-break #1: most intent ancestors (task + override) wins. The candidate with the deeper intent chain wins.",
+  "family": "F1",
+  "rule": "spec §5.2 tie-break: most intent ancestors first",
+  "at": "task-d",
+  "input": [
+    { "id": "task-a", "kind": "task", "parents": [], "effects": { "x": 1 } },
+    { "id": "task-b", "kind": "task", "parents": ["task-a"], "effects": { "x": 2 } },
+    { "id": "task-c", "kind": "task", "parents": [], "effects": { "x": 3 } },
+    { "id": "task-d", "kind": "task", "parents": ["task-b", "task-c"], "effects": { "x": 4 } }
+  ],
+  "expected_state": { "x": 4 },
+  "_note": "task-d is a descendant of both task-b and task-c, but ancestry reduction doesn't help (task-b and task-c are siblings, not in a parent-child relationship). task-d wins on its own; the tie-break doesn't engage here. Use this case to confirm the basic class resolution."
+}

@@ -1,0 +1,12 @@
+{
+  "name": "S1/poc-quilt-1-config-timeout",
+  "description": "The config.timeout key in poc-quilt-1 is settled by override-1 at 45, with task-a (30), task-b (60), task-d (99) as losers.",
+  "family": "S1",
+  "rule": "spec §5.1 + §5.3: class precedence wins; every setter is a candidate for the conflict",
+  "at": "task-c",
+  "input_source": "https://gitpp.superinstance.dev/api/records?project=poc-quilt-1",
+  "expected_state_subset": { "config.timeout": 45 },
+  "expected_conflicts_subset": [
+    { "key": "config.timeout", "winner": "override-1", "losers": ["task-a", "task-b", "task-d"] }
+  ]
+}

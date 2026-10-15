@@ -1,0 +1,39 @@
+{
+  "name": "F1/orphan-exclusion",
+  "description": "A record with a missing parent is excluded from the applied set. Its effects do not reach the state. Its descendants are not auto-orphaned unless they also have missing parents. Note: descendants of orphans are NOT auto-orphaned; their effects reach state even though their ancestor's effects do not.",
+  "family": "F1",
+  "rule": "spec \u00a75.5: orphans excluded from state; descendants not auto-orphaned",
+  "at": "genesis",
+  "input": [
+    {
+      "id": "genesis",
+      "kind": "task",
+      "parents": [],
+      "effects": {}
+    },
+    {
+      "id": "task-1",
+      "kind": "task",
+      "parents": [
+        "missing"
+      ],
+      "effects": {
+        "x": 1
+      }
+    },
+    {
+      "id": "task-2",
+      "kind": "task",
+      "parents": [
+        "task-1"
+      ],
+      "effects": {
+        "y": 2
+      }
+    }
+  ],
+  "expected_state": {
+    "y": 2
+  },
+  "expected_orphans_includes": "task-1"
+}

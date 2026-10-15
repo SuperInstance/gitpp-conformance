@@ -1,0 +1,42 @@
+{
+  "name": "F2/basic-kahn",
+  "description": "Kahn's algorithm produces a valid topological order.",
+  "family": "F2",
+  "rule": "spec \u00a75.4: Kahn order, smallest-id-first",
+  "at": "c",
+  "input": [
+    {
+      "id": "a",
+      "kind": "task",
+      "parents": [],
+      "effects": {
+        "x": 1
+      }
+    },
+    {
+      "id": "b",
+      "kind": "task",
+      "parents": [
+        "a"
+      ],
+      "effects": {
+        "x": 1
+      }
+    },
+    {
+      "id": "c",
+      "kind": "task",
+      "parents": [
+        "b"
+      ],
+      "effects": {
+        "x": 1
+      }
+    }
+  ],
+  "expected_order": [
+    "a",
+    "b",
+    "c"
+  ]
+}

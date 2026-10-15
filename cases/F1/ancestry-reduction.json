@@ -1,0 +1,12 @@
+{
+  "name": "F1/ancestry-reduction",
+  "description": "A descendant of a candidate dominates the ancestor within the same class. The ancestor is dropped from candidacy.",
+  "family": "F1",
+  "rule": "spec §5.2: a candidate that is an ancestor of any other candidate is dominated",
+  "at": "task-b",
+  "input": [
+    { "id": "task-a", "kind": "task", "parents": [], "effects": { "feature.cache": "on" } },
+    { "id": "task-b", "kind": "task", "parents": ["task-a"], "effects": { "feature.cache": "off" } }
+  ],
+  "expected_state": { "feature.cache": "off" }
+}

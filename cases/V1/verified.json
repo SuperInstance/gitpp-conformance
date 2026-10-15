@@ -1,0 +1,10 @@
+{
+  "name": "V1/verified",
+  "description": "The three-way verdict is VERIFIED when the recomputed closure root equals the pinned root AND the state matches.",
+  "family": "V1",
+  "rule": "spec §6: VERIFIED = state matches AND closure root matches",
+  "at": "task-c",
+  "pinned_root": "60effe23970d8a5cc837636c44685502361288c1f00577e9addfa10cbd4fc91d",
+  "input_source": "https://gitpp.superinstance.dev/api/records?project=poc-quilt-1",
+  "expected_verdict": "VERIFIED"
+}

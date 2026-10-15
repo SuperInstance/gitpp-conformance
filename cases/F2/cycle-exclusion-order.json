@@ -1,0 +1,13 @@
+{
+  "name": "F2/cycle-exclusion-order",
+  "description": "Records in a parent cycle are excluded from the order.",
+  "family": "F2",
+  "rule": "spec §5.4: cycle-affected records excluded",
+  "at": "ok",
+  "input": [
+    { "id": "ok", "kind": "task", "parents": [], "effects": { "x": 1 } },
+    { "id": "cyc-a", "kind": "task", "parents": ["cyc-b"], "effects": { "y": 1 } },
+    { "id": "cyc-b", "kind": "task", "parents": ["cyc-a"], "effects": { "z": 1 } }
+  ],
+  "expected_order": ["ok"]
+}

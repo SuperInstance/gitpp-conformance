@@ -1,0 +1,9 @@
+{
+  "name": "V1/missing-root",
+  "description": "A checkpoint without a closureRoot returns the v1 bool semantics: true if state matches, false otherwise. The three-way verdict is computed only when closureRoot is provided.",
+  "family": "V1",
+  "rule": "spec §6: backwards compatible with v1 bool checkpoints",
+  "at": "task-c",
+  "input_source": "https://gitpp.superinstance.dev/api/records?project=poc-quilt-1",
+  "expected_v1_bool_when_no_root": "true"
+}

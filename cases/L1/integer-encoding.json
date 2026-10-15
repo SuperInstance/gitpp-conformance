@@ -1,0 +1,17 @@
+{
+  "name": "L1/integer-encoding",
+  "description": "An integer value smaller than 1e21 is encoded as exact integer digits in the leaf.",
+  "family": "L1",
+  "rule": "spec §3: integral value with |v| < 1e21 → exact integer digits",
+  "at": "task-1",
+  "input": [
+    {
+      "id": "task-1",
+      "kind": "task",
+      "parents": [],
+      "effects": { "count": 42 }
+    }
+  ],
+  "expected_closure_root": "computed",
+  "expected_state": { "count": 42 }
+}

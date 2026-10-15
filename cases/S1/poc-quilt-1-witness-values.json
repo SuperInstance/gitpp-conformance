@@ -1,0 +1,12 @@
+{
+  "name": "S1/poc-quilt-1-witness-values",
+  "description": "Witness records (env.oracle_disk_pct, env.oracle_load1_x100) appear in the state when uncontested. They are ambient truth.",
+  "family": "S1",
+  "rule": "spec §5.1: 'Uncontested witness observations DO reach the state'",
+  "at": "task-c",
+  "input_source": "https://gitpp.superinstance.dev/api/records?project=poc-quilt-1",
+  "expected_state_subset": {
+    "env.oracle_disk_pct": 93,
+    "env.oracle_load1_x100": 17
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "L1/float-scientific",
+  "description": "A small non-integral float (1e-5) is rendered as 1e-05 in the leaf, not 0.00001. This is the float64 canonical form that both ports must produce identically.",
+  "family": "L1",
+  "rule": "spec §3: non-integral finite value with decpt <= -4 → scientific notation with >= 2-digit zero-padded exponent",
+  "at": "task-1",
+  "input": [
+    {
+      "id": "task-1",
+      "kind": "task",
+      "parents": [],
+      "effects": { "small": 1e-5 }
+    }
+  ],
+  "expected_closure_root": "computed",
+  "expected_state": { "small": 1e-5 }
+}

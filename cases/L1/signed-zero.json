@@ -1,0 +1,17 @@
+{
+  "name": "L1/signed-zero",
+  "description": "Signed zero (-0.0) is encoded as 0 in the leaf (sign dropped).",
+  "family": "L1",
+  "rule": "spec §3: signed zero (-0.0) → 0",
+  "at": "task-1",
+  "input": [
+    {
+      "id": "task-1",
+      "kind": "task",
+      "parents": [],
+      "effects": { "ratio": 0.0 }
+    }
+  ],
+  "expected_closure_root": "computed",
+  "expected_state": { "ratio": 0 }
+}

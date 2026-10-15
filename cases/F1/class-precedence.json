@@ -1,0 +1,39 @@
+{
+  "name": "F1/class-precedence",
+  "description": "Class precedence is absolute: override > task > witness, even when the witness is a descendant.",
+  "family": "F1",
+  "rule": "spec \u00a75.1: 'Done by us' cannot be displaced by 'seen by us'",
+  "at": "witness-1",
+  "input": [
+    {
+      "id": "task-a",
+      "kind": "task",
+      "parents": [],
+      "effects": {
+        "config.timeout": 30
+      }
+    },
+    {
+      "id": "witness-1",
+      "kind": "witness",
+      "parents": [
+        "task-a"
+      ],
+      "effects": {
+        "config.timeout": 99
+      }
+    }
+  ],
+  "expected_state": {
+    "config.timeout": 30
+  },
+  "expected_conflicts": [
+    {
+      "key": "config.timeout",
+      "winner": "task-a",
+      "losers": [
+        "witness-1"
+      ]
+    }
+  ]
+}

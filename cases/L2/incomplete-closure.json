@@ -1,0 +1,13 @@
+{
+  "name": "L2/incomplete-closure",
+  "description": "An incomplete closure: at references a parent that isn't in the set. The root is null.",
+  "family": "L2",
+  "rule": "spec §4: if any ancestor is missing, the closure is incomplete and the root is null",
+  "at": "task-2",
+  "input": [
+    { "id": "task-1", "kind": "task", "parents": ["missing-parent"], "effects": { "x": 1 } },
+    { "id": "task-2", "kind": "task", "parents": ["task-1"], "effects": { "y": 2 } }
+  ],
+  "expected_closure_root": null,
+  "expected_orphans_includes": "task-1"
+}

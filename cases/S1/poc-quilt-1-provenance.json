@@ -1,0 +1,9 @@
+{
+  "name": "S1/poc-quilt-1-provenance",
+  "description": "The genesis record's effects (project, status) flow through to every descendant via ancestry. Every record that depends on genesis sees project=poc-quilt-1 and status=open in the state.",
+  "family": "S1",
+  "rule": "spec §5.2: ancestors' effects reach the state at any descendant's position",
+  "at": "task-c",
+  "input_source": "https://gitpp.superinstance.dev/api/records?project=poc-quilt-1",
+  "expected_state_subset": { "project": "poc-quilt-1", "status": "open" }
+}

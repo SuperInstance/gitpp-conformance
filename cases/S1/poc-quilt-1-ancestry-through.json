@@ -1,0 +1,9 @@
+{
+  "name": "S1/poc-quilt-1-ancestry-through",
+  "description": "task-c inherits feature.inherited=true because its parent override-1's effects flow through. task-c itself doesn't set this key directly, but its parent does, and task-c reads the derived state at 'inherited' position.",
+  "family": "S1",
+  "rule": "spec §5.2: candidates' effects reach state for any applied record",
+  "at": "task-c",
+  "input_source": "https://gitpp.superinstance.dev/api/records?project=poc-quilt-1",
+  "expected_state_subset": { "feature.inherited": true }
+}

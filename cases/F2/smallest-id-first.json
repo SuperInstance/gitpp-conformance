@@ -1,0 +1,14 @@
+{
+  "name": "F2/smallest-id-first",
+  "description": "When two records are ready at the same time, the smaller id is processed first (Unicode code point).",
+  "family": "F2",
+  "rule": "spec §5.4: smallest-id-first (Unicode code point)",
+  "at": "task-final",
+  "input": [
+    { "id": "zebra", "kind": "task", "parents": [], "effects": { "x": 1 } },
+    { "id": "alpha", "kind": "task", "parents": [], "effects": { "x": 1 } },
+    { "id": "mango", "kind": "task", "parents": [], "effects": { "x": 1 } },
+    { "id": "task-final", "kind": "task", "parents": ["zebra", "alpha", "mango"], "effects": {} }
+  ],
+  "expected_order_starts_with": ["alpha", "mango", "zebra"]
+}

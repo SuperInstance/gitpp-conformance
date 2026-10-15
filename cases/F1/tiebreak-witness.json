@@ -1,0 +1,15 @@
+{
+  "name": "F1/tiebreak-witness",
+  "description": "Tie-break #2: fewest witness ancestors wins. When intent counts tie, the candidate with the cleaner chain wins.",
+  "family": "F1",
+  "rule": "spec §5.2 tie-break: fewest witness ancestors first",
+  "at": "task-c",
+  "input": [
+    { "id": "witness-base", "kind": "witness", "parents": [], "effects": { "x": 1 } },
+    { "id": "task-a", "kind": "task", "parents": ["witness-base"], "effects": { "x": 1 } },
+    { "id": "task-b", "kind": "task", "parents": [], "effects": { "x": 1 } },
+    { "id": "task-c", "kind": "task", "parents": ["task-a", "task-b"], "effects": { "x": 1 } }
+  ],
+  "expected_state": { "x": 1 },
+  "_note": "Both task-a and task-b are in task-c's ancestry with the same value. task-a has 1 witness ancestor (witness-base), task-b has 0. task-b should win by tie-break #2."
+}
